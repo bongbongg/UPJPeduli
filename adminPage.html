@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Admin - UPJPeduli</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+            <span class="text-white font-bold text-lg">🤝</span>
+          </div>
+          <h1 class="text-2xl font-bold text-gray-800">UPJPeduli</h1>
+        </div>
+
+        <!-- Menu Desktop -->
+        <nav class="hidden md:flex space-x-6">
+          <a href="index.html" class="text-gray-600 hover:text-blue-600 transition-colors">Beranda</a>
+          <a href="donasi.html" class="text-gray-600 hover:text-blue-600 transition-colors">Donasi</a>
+          <a href="#" class="text-blue-600 font-semibold">Admin</a>
+        </nav>
+
+        <!-- Hamburger Button -->
+        <button id="menuBtn" class="md:hidden text-gray-700 text-3xl focus:outline-none">☰</button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-200">
+      <nav class="flex flex-col space-y-3 py-4 px-6 text-center">
+        <a href="index.html" class="text-gray-600 hover:text-blue-600 transition-colors">Beranda</a>
+        <a href="donasi.html" class="text-gray-600 hover:text-blue-600 transition-colors">Donasi</a>
+        <a href="#" class="text-blue-600 font-semibold">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Login Section -->
+  <main class="flex-grow flex items-center justify-center px-4 py-20">
+    <div class="bg-white rounded-2xl shadow-2xl p-8 sm:p-10 max-w-md w-full">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">Login Admin</h2>
+        <p class="text-gray-500 text-sm sm:text-base">Masuk ke dashboard pengelolaan donasi UPJPeduli</p>
+      </div>
+
+      <form id="adminLoginForm" class="space-y-6">
+        <div>
+          <label class="block text-left font-medium text-gray-700 mb-2">Email</label>
+          <input id="email" type="email" placeholder="admin@upj.ac.id"
+            class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required>
+        </div>
+        <div>
+          <label class="block text-left font-medium text-gray-700 mb-2">Password</label>
+          <input id="password" type="password" placeholder="••••••••"
+            class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required>
+        </div>
+
+        <p id="errorMsg" class="text-red-500 text-center text-sm hidden">Email atau password salah!</p>
+
+        <button type="submit"
+          class="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all">
+          Masuk
+        </button>
+      </form>
+
+      <p class="text-center text-sm text-gray-500 mt-6">© 2025 UPJPeduli. Admin Only.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-10 mt-auto">
+    <div class="container mx-auto px-4">
+      <div class="grid gap-10 md:grid-cols-4 text-center md:text-left">
+        <div>
+          <div class="flex items-center justify-center md:justify-start space-x-3 mb-4">
+            <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+              <span class="text-white text-sm">🤝</span>
+            </div>
+            <h4 class="text-xl font-bold">UPJPeduli</h4>
+          </div>
+          <p class="text-gray-400 text-sm md:text-base">Platform donasi dan kegiatan sosial Universitas Pembangunan Jaya. Bersama, kita ciptakan dampak nyata.</p>
+        </div>
+        <div>
+          <h5 class="font-semibold mb-4">Navigasi</h5>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="index.html" class="hover:text-white transition-colors">Beranda</a></li>
+            <li><a href="donasi.html" class="hover:text-white transition-colors">Donasi</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Admin</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-semibold mb-4">Kontak</h5>
+          <p class="text-gray-400 text-sm md:text-base">Jl. Cendrawasih Raya Blok B7/P, Sawah Baru, Tangerang Selatan</p>
+          <p class="text-gray-400 text-sm md:text-base">Email: peduli@upj.ac.id</p>
+        </div>
+        <div>
+          <h5 class="font-semibold mb-4">Ikuti Kami</h5>
+          <div class="flex justify-center md:justify-start space-x-4">
+            <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors">📘</a>
+            <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors">📸</a>
+            <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors">🐦</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm">
+        <p>&copy; 2025 UPJPeduli. Universitas Pembangunan Jaya. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    // Toggle mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Login function
+    document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const errorMsg = document.getElementById('errorMsg');
+
+      if (email === "admin@upj.ac.id" && password === "upj123") {
+        alert("Login berhasil! Mengarahkan ke dashboard admin...");
+        window.location.href = "adminDashboard.html";
+      } else {
+        errorMsg.classList.remove('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>

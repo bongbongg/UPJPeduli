@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPJPeduli - Bersama Membangun Kepedulian Kampus</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+
+    .donation-card { transition: all 0.3s ease; }
+    .donation-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+    .progress-bar {
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      animation: progress-fill 2s ease-out;
+    }
+    @keyframes progress-fill { from { width: 0%; } to { width: 75%; } }
+
+    .impact-counter { animation: countUp 2s ease-out; }
+    @keyframes countUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+            <span class="text-white font-bold text-lg">🤝</span>
+          </div>
+          <h1 class="text-2xl font-bold text-gray-800">UPJPeduli</h1>
+        </div>
+
+        <!-- Tombol menu untuk HP -->
+        <button id="menuBtn" class="md:hidden text-gray-700 focus:outline-none">
+          ☰
+        </button>
+
+        <!-- Navigasi -->
+        <nav id="navMenu" class="hidden md:flex md:space-x-6 flex-col md:flex-row absolute md:static bg-white md:bg-transparent top-16 left-0 w-full md:w-auto shadow-md md:shadow-none p-4 md:p-0">
+          <a href="#donate" class="block py-2 text-gray-600 hover:text-blue-600 transition-colors">Donasi</a>
+          <a href="#program" class="block py-2 text-gray-600 hover:text-blue-600 transition-colors">Program</a>
+          <a href="#impact" class="block py-2 text-gray-600 hover:text-blue-600 transition-colors">Dampak</a>
+          <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600 transition-colors">Tentang</a>
+          <a href="adminPage.html" class="block py-2 text-gray-600 hover:text-blue-600 transition-colors">Admin</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="py-16 px-4 text-center">
+    <h2 class="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
+      Bersama <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">UPJPeduli</span> Membangun Kepedulian Kampus
+    </h2>
+    <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+      Setiap donasi Anda membantu mewujudkan kegiatan sosial, beasiswa, dan bantuan kemanusiaan di Universitas Pembangunan Jaya.
+    </p>
+    <div class="bg-white rounded-2xl p-6 shadow-xl max-w-md mx-auto mb-8">
+      <div class="text-sm text-gray-600 mb-2">Progress Donasi Kampus</div>
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-2xl font-bold text-gray-800">Rp187.500.000</span>
+        <span class="text-gray-600 text-sm md:text-base">dari Rp250.000.000</span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-3">
+        <div class="progress-bar h-3 rounded-full" style="width: 75%"></div>
+      </div>
+      <p class="text-sm text-gray-600 mt-2">2.341 donatur • 25 hari tersisa</p>
+    </div>
+  </section>
+
+  <!-- Program Donasi -->
+  <section id="program" class="py-16 px-6 bg-white">
+    <div class="container mx-auto text-center">
+      <h3 class="text-3xl font-bold text-gray-800 mb-12">Program Donasi UPJPeduli</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div class="donation-card bg-gradient-to-br from-white to-blue-50 p-6 rounded-2xl shadow-lg">
+          <h4 class="text-xl font-semibold mb-3 text-blue-700">🎓 Beasiswa Mahasiswa</h4>
+          <p class="text-gray-600 mb-4">Bantu mahasiswa kurang mampu agar tetap bisa menempuh pendidikan di UPJ.</p>
+          <button onclick="goToDonation('beasiswa')" class="w-full py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700">Donasi Sekarang</button>
+        </div>
+
+        <div class="donation-card bg-gradient-to-br from-white to-red-50 p-6 rounded-2xl shadow-lg">
+          <h4 class="text-xl font-semibold mb-3 text-red-700">🌊 Bantuan Bencana Alam</h4>
+          <p class="text-gray-600 mb-4">Bantu masyarakat terdampak bencana melalui program tanggap darurat UPJPeduli.</p>
+          <button onclick="goToDonation('bencana')" class="w-full py-2 bg-gradient-to-r from-red-600 to-pink-600 text-white rounded-lg font-semibold hover:from-red-700 hover:to-pink-700">Donasi Sekarang</button>
+        </div>
+
+        <div class="donation-card bg-gradient-to-br from-white to-green-50 p-6 rounded-2xl shadow-lg">
+          <h4 class="text-xl font-semibold mb-3 text-green-700">💙 Kegiatan Sosial Kampus</h4>
+          <p class="text-gray-600 mb-4">Dukung kegiatan sosial mahasiswa UPJ seperti bakti sosial dan berbagi bersama warga sekitar.</p>
+          <button onclick="goToDonation('sosial')" class="w-full py-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700">Donasi Sekarang</button>
+        </div>
+
+        <div class="donation-card bg-gradient-to-br from-white to-yellow-50 p-6 rounded-2xl shadow-lg">
+          <h4 class="text-xl font-semibold mb-3 text-yellow-700">🏥 Bantuan Kesehatan</h4>
+          <p class="text-gray-600 mb-4">Bantu mahasiswa dan warga sekitar yang membutuhkan biaya pengobatan.</p>
+          <button onclick="goToDonation('kesehatan')" class="w-full py-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-lg font-semibold hover:from-yellow-600 hover:to-orange-600">Donasi Sekarang</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Dampak -->
+  <section id="impact" class="py-16 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center">
+    <h3 class="text-3xl font-bold mb-12">Dampak UPJPeduli</h3>
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="impact-counter">
+        <div class="text-4xl font-bold mb-2">1.250+</div>
+        <div class="text-blue-100">Mahasiswa Terbantu</div>
+      </div>
+      <div class="impact-counter">
+        <div class="text-4xl font-bold mb-2">27</div>
+        <div class="text-blue-100">Kegiatan Sosial</div>
+      </div>
+      <div class="impact-counter">
+        <div class="text-4xl font-bold mb-2">Rp350 Juta+</div>
+        <div class="text-blue-100">Dana Tersalurkan</div>
+      </div>
+      <div class="impact-counter">
+        <div class="text-4xl font-bold mb-2">8</div>
+        <div class="text-blue-100">Program Aktif</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4 text-center md:text-left">
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center justify-center md:justify-start space-x-3 mb-4">
+            <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+              <span class="text-white text-sm">🤝</span>
+            </div>
+            <h4 class="text-xl font-bold">UPJPeduli</h4>
+          </div>
+          <p class="text-gray-400">Platform donasi dan kegiatan sosial Universitas Pembangunan Jaya. Bersama, kita ciptakan dampak nyata.</p>
+        </div>
+        <div>
+          <h5 class="font-semibold mb-4">Navigasi</h5>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#program" class="hover:text-white transition-colors">Program Donasi</a></li>
+            <li><a href="#impact" class="hover:text-white transition-colors">Dampak</a></li>
+            <li><a href="#about" class="hover:text-white transition-colors">Tentang Kami</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-semibold mb-4">Kontak</h5>
+          <p class="text-gray-400">Jl. Cendrawasih Raya Blok B7/P, Sawah Baru, Tangerang Selatan</p>
+          <p class="text-gray-400">Email: peduli@upj.ac.id</p>
+        </div>
+        <div>
+          <h5 class="font-semibold mb-4">Ikuti Kami</h5>
+          <div class="flex justify-center md:justify-start space-x-4">
+            <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors">📘</a>
+            <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors">📸</a>
+            <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors">🐦</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 UPJPeduli. Universitas Pembangunan Jaya. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS: Toggle Menu Mobile -->
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navMenu = document.getElementById("navMenu");
+    menuBtn.addEventListener("click", () => {
+      navMenu.classList.toggle("hidden");
+    });
+
+    function goToDonation(program) {
+      window.location.href = `donasi.html?program=${program}`;
+    }
+  </script>
+
+</body>
+</html>

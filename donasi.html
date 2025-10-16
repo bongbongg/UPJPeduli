@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donasi - UPJPeduli</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+    body {
+      font-family: "Inter", sans-serif;
+    }
+
+    .form-card {
+      transition: all 0.3s ease;
+    }
+    .form-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .gradient-btn {
+      background: linear-gradient(to right, #2563eb, #7c3aed);
+    }
+    .gradient-btn:hover {
+      background: linear-gradient(to right, #1d4ed8, #6d28d9);
+    }
+
+    /* animasi buka tutup menu mobile */
+    .mobile-menu {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .mobile-menu {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+          <span class="text-white font-bold text-lg">🤝</span>
+        </div>
+        <h1 class="text-2xl font-bold text-gray-800">UPJPeduli</h1>
+      </div>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html" class="text-gray-600 hover:text-blue-600 transition">Beranda</a>
+        <a href="#form-donasi" class="text-gray-600 hover:text-blue-600 transition">Form Donasi</a>
+      </nav>
+
+      <!-- Tombol Menu Mobile -->
+      <button id="menu-btn" class="md:hidden text-2xl text-gray-700 focus:outline-none">☰</button>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="hidden flex-col bg-white border-t border-gray-200 py-3 md:hidden text-center">
+      <a href="index.html" class="block py-2 text-gray-600 hover:text-blue-600">Beranda</a>
+      <a href="#form-donasi" class="block py-2 text-gray-600 hover:text-blue-600">Form Donasi</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="text-center py-12 px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Formulir Donasi UPJPeduli</h2>
+    <p class="text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
+      Terima kasih telah ikut serta dalam gerakan kepedulian kampus.  
+      Silakan isi form di bawah ini untuk berpartisipasi dalam program donasi.
+    </p>
+  </section>
+
+  <!-- Form Donasi -->
+  <section id="form-donasi" class="flex-grow px-4 pb-16">
+    <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-6 sm:p-8 form-card">
+      <form id="donationForm" class="space-y-6">
+        <!-- Nama -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Nama Lengkap</label>
+          <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap Anda"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Email</label>
+          <input type="email" id="email" name="email" placeholder="nama@email.com"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required />
+        </div>
+
+        <!-- Program Donasi -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Pilih Program Donasi</label>
+          <select id="program" name="program"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required>
+            <option value="">-- Pilih Program --</option>
+            <option value="beasiswa">🎓 Beasiswa Mahasiswa</option>
+            <option value="bencana">🌊 Bantuan Bencana Alam</option>
+            <option value="sosial">💙 Kegiatan Sosial Kampus</option>
+            <option value="kesehatan">🏥 Bantuan Kesehatan</option>
+          </select>
+        </div>
+
+        <!-- Nominal -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Nominal Donasi (Rp)</label>
+          <input type="number" id="nominal" name="nominal" min="10000" step="1000"
+            placeholder="Minimal Rp10.000"
+            class="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required />
+        </div>
+
+        <!-- Metode Pembayaran -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Metode Pembayaran</label>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <label
+              class="flex items-center space-x-3 border rounded-lg px-4 py-2 cursor-pointer hover:bg-gray-50">
+              <input type="radio" name="metode" value="Transfer Bank" required />
+              <span class="text-sm sm:text-base">🏦 Transfer Bank</span>
+            </label>
+            <label
+              class="flex items-center space-x-3 border rounded-lg px-4 py-2 cursor-pointer hover:bg-gray-50">
+              <input type="radio" name="metode" value="E-Wallet" />
+              <span class="text-sm sm:text-base">📱 E-Wallet (Dana, OVO, GoPay)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Catatan -->
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Pesan atau Doa (opsional)</label>
+          <textarea id="pesan" name="pesan" rows="3"
+            placeholder="Tuliskan pesan singkat untuk penerima donasi..."
+            class="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        </div>
+
+        <!-- Tombol -->
+        <div class="text-center">
+          <button type="submit"
+            class="gradient-btn text-white font-semibold px-8 py-3 rounded-lg shadow-md w-full sm:w-auto">
+            Kirim Donasi
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-10 text-center px-4 text-sm sm:text-base">
+    <p>&copy; 2025 UPJPeduli. Universitas Pembangunan Jaya.</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    // Menu toggle
+    document.getElementById("menu-btn").addEventListener("click", function () {
+      const menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("hidden");
+    });
+
+    // Ambil nama program dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const programParam = urlParams.get("program");
+    if (programParam) {
+      document.getElementById("program").value = programParam;
+    }
+
+    // Notifikasi kirim donasi
+    document.getElementById("donationForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Terima kasih atas donasi Anda! Data donasi telah terkirim.");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
